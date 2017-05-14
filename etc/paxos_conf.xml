@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<listen addr = "0.0.0.0:8000" http = "0.0.0.0:9000" id = "1"/>
+	<node_list>
+		<node addr="127.0.0.1:8000" id = "1"/>
+		<node addr="127.0.0.1:8001" id = "2"/>
+		<node addr="127.0.0.1:8002" id = "3"/>
+	</node_list>
+</root>
