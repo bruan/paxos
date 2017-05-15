@@ -32,7 +32,6 @@ type proposer struct {
 	waitCommitLock      sync.Mutex // 几个submit协程保护锁
 	resultChan          chan string
 	instanceGroup       *InstanceGroup
-	workInstanceID      int
 	instances           map[int]*proposerInstance
 }
 
@@ -76,7 +75,6 @@ func (p *proposer) update(init bool) {
 	inst := &proposerInstance{instanceID: instanceID, state: proposerNone, proposalBallot: 1, acceptBallot: 0, acceptValue: ""}
 	inst.counter.nodeCount = p.instanceGroup.getNodeCount()
 	p.instances[instanceID] = inst
-	p.workInstanceID = instanceID
 
 	if p.multiProposalBallot != 0 {
 		inst.proposalBallot = p.multiProposalBallot
